@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin Login</title>
+<style>
+body{font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;background:#f5f5f5;margin:0}
+.box{background:#fff;padding:2rem;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.1);width:300px}
+h2{margin:0 0 1.5rem;color:#1e293b}
+input{width:100%;padding:.6rem;margin:.4rem 0 .8rem;box-sizing:border-box;border:1px solid #e2e8f0;border-radius:4px;font-size:1rem}
+button{width:100%;padding:.75rem;background:#4f46e5;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:1rem}
+button:hover{background:#4338ca}
+.err{color:#dc2626;margin-bottom:.5rem;font-size:.9rem}
+</style></head>
+<body>
+<div class="box">
+  <h2>Admin Panel</h2>
+  @if(ViewBag.Error != null){<p class="err">@ViewBag.Error</p>}
+  <form method="post">
+    <input name="username" placeholder="Username" required autocomplete="username"/>
+    <input name="password" type="password" placeholder="Password" required autocomplete="current-password"/>
+    <button type="submit">Войти</button>
+  </form>
+</div>
+</body>
+</html>

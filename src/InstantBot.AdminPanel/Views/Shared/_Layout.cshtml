@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>@ViewBag.Title — InstantBot Admin</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f8fafc;color:#1e293b}
+nav{background:#4f46e5;color:#fff;padding:.875rem 2rem;display:flex;gap:1.5rem;align-items:center}
+nav strong{font-size:1.1rem;margin-right:1rem}
+nav a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.9rem}
+nav a:hover{color:#fff}
+.container{max-width:1400px;margin:2rem auto;padding:0 1.5rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-bottom:2rem}
+.card{background:#fff;border-radius:8px;padding:1.25rem;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.card h3{font-size:.75rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.card .val{font-size:1.9rem;font-weight:700;margin:.25rem 0;color:#1e293b}
+.card small{font-size:.75rem;color:#94a3b8}
+.chart-box{background:#fff;border-radius:8px;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:1.5rem}
+.chart-box h2{font-size:.9rem;font-weight:600;color:#475569;margin-bottom:1rem}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:hidden}
+th,td{padding:.7rem 1rem;text-align:left;border-bottom:1px solid #f1f5f9;font-size:.875rem}
+th{background:#f8fafc;color:#64748b;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+.badge{padding:.2rem .6rem;border-radius:99px;font-size:.7rem;font-weight:600;text-transform:uppercase}
+.free{background:#f1f5f9;color:#64748b}
+.premium{background:#dbeafe;color:#1e40af}
+.vip{background:#fef3c7;color:#92400e}
+</style>
+</head>
+<body>
+<nav>
+  <strong>InstantBot</strong>
+  <a href="/Dashboard">Dashboard</a>
+  <a href="/Users">Пользователи</a>
+  <a href="/Auth/Logout">Выход</a>
+</nav>
+<div class="container">
+  @RenderBody()
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+@using InstantBot.Domain.Entities
+@model List<User>
+@{ViewBag.Title="Пользователи";Layout="_Layout";}
+<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem">
+  <h1 style="font-size:1.5rem;font-weight:700">Пользователи <span style="color:#64748b;font-size:1rem;font-weight:400">(@ViewBag.Total)</span></h1>
+  <div style="margin-left:auto;display:flex;gap:.5rem">
+    <a href="?" style="padding:.4rem .8rem;background:#f1f5f9;border-radius:4px;text-decoration:none;font-size:.85rem">Все</a>
+    <a href="?tier=Free" style="padding:.4rem .8rem;background:#f1f5f9;border-radius:4px;text-decoration:none;font-size:.85rem">Free</a>
+    <a href="?tier=Premium" style="padding:.4rem .8rem;background:#dbeafe;border-radius:4px;text-decoration:none;font-size:.85rem">Premium</a>
+    <a href="?tier=Vip" style="padding:.4rem .8rem;background:#fef3c7;border-radius:4px;text-decoration:none;font-size:.85rem">VIP</a>
+  </div>
+</div>
+<table>
+<thead><tr>
+  <th>Telegram ID</th><th>Имя</th><th>Тариф</th><th>Серия</th><th>Регистрация</th><th>Активность</th>
+</tr></thead>
+<tbody>
+@foreach(var u in Model)
+{
+  <tr>
+    <td style="color:#64748b;font-family:monospace">@u.TelegramUserId</td>
+    <td><strong>@u.FirstName</strong>@(u.Username != null ? $" @{u.Username}" : "")</td>
+    <td><span class="badge @u.SubscriptionTier.ToString().ToLower()">@u.SubscriptionTier</span></td>
+    <td>@u.CurrentStreak 🔥</td>
+    <td>@u.RegistrationDate.ToString("dd.MM.yy")</td>
+    <td>@u.LastActiveDate.ToString("dd.MM.yy")</td>
+  </tr>
+}
+</tbody>
+</table>
+<div style="margin-top:1rem;display:flex;gap:1rem;font-size:.85rem">
+  @if(ViewBag.Page > 1){<a href="?page=@(ViewBag.Page-1)&tier=@ViewBag.Tier">← Назад</a>}
+  <a href="?page=@(ViewBag.Page+1)&tier=@ViewBag.Tier">Вперёд →</a>
+</div>
